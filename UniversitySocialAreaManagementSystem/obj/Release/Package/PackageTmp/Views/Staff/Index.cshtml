@@ -1,0 +1,51 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Staff>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<link href="~/Content/bootstrap.min.css" ref="stylesheet" />
+<h2>Personel Listeleme Syafası</h2>
+
+
+<table class="table table-hover">
+    <tr>
+        <th># </th>
+
+        <th>Tc Numarası</th>
+        <th>Adı</th>
+        <th>Soyadı </th>
+        <th>Şifresi</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.staff_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tc_number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td><a href="~/Staff/DeleteStaff/@item.staff_id" class="btn btn-danger">Sil</a></td>
+            <td><a href="~/Staff/EditStaff/@item.staff_id" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+
+</table>
+
+<a href="~/Staff/AddStaff/" class=" btn btn-info">Personel Ekle </a>
+
+

@@ -1,0 +1,64 @@
+﻿@model EntityLayer.Concrete.Student
+@{
+    ViewBag.Title = "AddStudent";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <h2>Yeni Öğrenci Ekleme</h2>
+    <br />
+
+    @using (Html.BeginForm("AddStudent", "Student", FormMethod.Post))
+    {
+        <div class="form-group">
+
+            @Html.Label("Öğrenci id")
+            @Html.TextBoxFor(x => x.studentid, new { @class = "form-control",@readonly="readonly" })
+
+
+            @Html.Label("Öğrenci Adı")
+            @Html.TextBoxFor(x => x.name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.name)
+            <br />
+            @Html.Label("Öğrenci Soyadı")
+            @Html.TextBoxFor(x => x.surname, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.surname)
+            <br />
+            @Html.Label("Öğrenci Numarası")
+            @Html.TextBoxFor(x => x.student_number, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.student_number)
+            <br />
+            @Html.Label("Öğrenci Tc si")
+            @Html.TextBoxFor(x => x.tc_number, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.tc_number)
+            <br />
+            @Html.Label("Öğrenci Email adresi")
+            @Html.TextBoxFor(x => x.email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.email)
+            <br />
+            @Html.Label("Öğrenci Şifresi")
+            @Html.TextBoxFor(x => x.password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.password)
+            <br />
+            @Html.Label("Öğrenci Bölüm")
+            @Html.DropDownListFor(x => x.d_id, (List<SelectListItem>)ViewBag.vld, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.d_id)  @*department id*@
+            <br />
+            <br />
+            @Html.Label("Öğrenci Kurs Başkanı Id")
+            @Html.TextBoxFor(x => x.president_id, new { @class = "form-control" })
+
+            <br />
+            <br />
+            @Html.Label("Öğrenci Topluluk Başkanı Id")
+            @Html.TextBoxFor(x => x.community_president_id, new { @class = "form-control" })
+
+            <br />
+
+            <button class="btn btn-info">Kaydet</button>
+
+        </div>
+    }
+<div>
+    @Html.ActionLink("Listeleme Geri Dön", "Index")
+</div>
+

@@ -1,0 +1,39 @@
+﻿@model EntityLayer.Concrete.Community
+@{
+    ViewBag.Title = "AddCommunity";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Topluluk Ekle</h2>
+<br />
+@using (Html.BeginForm("AddCommunity", "Community", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.Label("Topluluk id")
+        @Html.TextBoxFor(x => x.community_id, new { @class = "form-control" ,@readonly="readonly"})
+
+
+        @Html.Label("Topluluk başkanı Adı")
+        @Html.TextBoxFor(x => x.community_president_id, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.community_president_id)
+        <br />
+        @Html.Label("Topluluk Adı")
+        @Html.TextBoxFor(x => x.community_name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.community_name)
+        <br />
+        @Html.Label("Topluluk İçeriği ")
+        @Html.TextBoxFor(x => x.description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.description)
+        <br />
+       
+       
+
+        <button class="btn btn-info">Kaydet</button>
+
+    </div>
+}
+<div>
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</div>

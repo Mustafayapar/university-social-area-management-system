@@ -1,0 +1,37 @@
+﻿@model EntityLayer.Concrete.CommunityRegisteration
+@{
+    ViewBag.Title = "EditCommunityRegister";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Kayıt Düzenle</h2>
+
+<br />
+@using (Html.BeginForm("EditCommunityRegister", "CommunityRegisteration", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.Label("Kayıt İd")
+        @Html.TextBoxFor(x => x.id, new { @class = "form-control", @readonly = "readonly" })
+
+
+        <br />
+        @Html.Label("Öğrenci Numarası")
+        @Html.TextBoxFor(x => x.studentid, new { @class = "form-control" })
+       
+
+        <br />
+        @Html.Label("Topluluk Adı")
+        @Html.TextBoxFor(x => x.community_id, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.community_id)
+
+        <br />
+
+
+        <button class="btn btn-success">Güncelle</button>
+
+    </div>
+}
+<div>
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</div>

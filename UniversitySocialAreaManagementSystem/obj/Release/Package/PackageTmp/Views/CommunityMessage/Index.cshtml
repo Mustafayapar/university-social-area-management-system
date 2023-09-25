@@ -1,0 +1,35 @@
+﻿@using EntityLayer.Concrete
+@model List<CommunityMessage>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Topluluk Mesajları</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Başkan</th>
+        <th>Mesaj İçeriği</th>
+        <th>Tarih</th>
+        @*<th>Sil</th>*@
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.message_id</td>
+            <td>@item.community_president_id</td>
+            <td>@item.messages</td>
+            <td>@item.date</td>
+
+            @*<td><a href="/CommunityMessage/DeleteCommunityMessage/@item.message_id" class="btn btn-danger">Sil</a></td>*@
+            <td><a href="/CommunityMessage/EditCommunityMessage/@item.message_id" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/CommunityMessage/AddCommunityMessage" class="btn btn-info">Yeni Mesaj Ekle</a>
+

@@ -1,0 +1,95 @@
+﻿@using EntityLayer.Concrete
+@model List<Announcement>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <section class="content">
+            <div class="container-fluid">
+                <br />
+                <div class="container-md"><h2>Duyurular</h2> </div>               <br />
+
+
+                <!-- Timelime example  -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- The time line -->
+                        <div class="timeline">
+                            @foreach (var item in Model)
+                            {
+                                <!-- timeline time label -->
+
+                                <div class="time-label">
+                                    <span class="bg-success">@(((DateTime)item.date).ToString("dd-MMM-yyyy"))</span>
+                                </div>
+                                <!-- /.timeline-label -->
+                                <!-- timeline item -->
+                                <div>
+                                    <i class="fas fa-comment bg-yellow"></i>
+                                    <div class="timeline-item">
+                                        <h3 class="timeline-header"><a href="#">@item.Staff.name @item.Staff.surname</a> @item.title</h3>
+
+                                        <div class="timeline-body">
+                                            @item.description
+                                        </div>
+                                        <div><a href="/Announcement/EditAnnouncement/@item.announcement_id" class="btn btn-success">Güncelle</a></div>
+                                    </div>
+                                </div>
+                            }
+                            <!-- END timeline item -->
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </div>
+            <!-- /.timeline -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- ./wrapper -->
+</body>
+</html>
+<div> <a href="/Announcement/AddAnnouncement" class="btn btn-info">Duyuru Ekle</a></div>
+<br />
+<br />
+
+
+@*<br />
+    <h2>Duyurular</h2>
+
+    <br />
+    <table class="table table-bordered">
+        <tr>
+            <th>Id</th>
+            <th>Duyuruyu yapan personel</th>
+            <th>Duyuruyu Başlığı</th>
+            <th>Duyuru</th>
+            <th>Tarih</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.announcement_id</td>
+                <td>@item.staff_id</td>
+                <td>@item.title</td>
+                <td>@item.description</td>
+                <td>@(((DateTime)item.date).ToString("dd-MMM-yyyy"))</td>
+
+                <td><a href="/Announcement/DeleteAnnouncement/@item.announcement_id" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Announcement/EditAnnouncement/@item.announcement_id" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+
+    <a href="/Announcement/AddAnnouncement" class="btn btn-info">Duyuru Ekle</a>*@
+

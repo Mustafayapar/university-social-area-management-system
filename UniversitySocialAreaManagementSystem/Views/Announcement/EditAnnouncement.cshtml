@@ -1,0 +1,48 @@
+﻿@model EntityLayer.Concrete.Announcement
+@{
+    ViewBag.Title = "EditAnnouncement";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Duyuru Düzenle</h2>
+<br />
+
+@using (Html.BeginForm("EditAnnouncement", "Announcement", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.Label("Duyuru İd")
+        @Html.TextBoxFor(x => x.announcement_id, new { @class = "form-control", @readonly = "readonly" })
+
+
+        <br />
+        @Html.Label("Duyuru Yapan Personel")
+        @Html.TextBoxFor(x => x.staff_id, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.staff_id)
+
+        <br />
+        @Html.Label("Duyuru Başlık")
+        @Html.TextBoxFor(x => x.staff_id, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.staff_id)
+
+        <br />
+        @Html.Label("Duyuru")
+        @Html.TextBoxFor(x => x.description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.description)
+
+        <br />
+        @Html.Label("Tarih")
+        @Html.TextBoxFor(x => x.date, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.date)
+
+        <br />
+
+
+        <button class="btn btn-success">Güncelle</button>
+
+    </div>
+}
+<div>
+    @Html.ActionLink("Listeleme Geri Dön", "Index")
+</div>

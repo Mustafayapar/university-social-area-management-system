@@ -1,0 +1,38 @@
+﻿@using EntityLayer.Concrete
+@model List<Course>
+@{
+    ViewBag.Title = "Courses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<h2>Kurslar Listesi </h2>
+
+<br />
+
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Kurs id</th>
+        <th>Kurs Başkanı</th>
+        <th>Kursun Adı</th>
+        <th>Kursun Tanımı</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.course_id</td>
+            <td>@item.president_id </td>
+            <td>@item.course_name</td>
+            <td>@item.description</td>
+
+
+         </tr>
+    }
+</table>
+
+

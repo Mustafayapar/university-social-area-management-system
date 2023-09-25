@@ -1,0 +1,40 @@
+﻿@using EntityLayer.Concrete
+@model List<Community>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Topluluklar</h2>
+<br />
+
+<a href="/CommunityRegisteration/Index" class="btn btn-info">Topluluk Kayıt Listesi</a>
+<br />
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Topluluk id</th>
+        <th>Topluluk Başkanı</th>
+        <th>Topluluk Adı</th>
+        <th>Topluluk İçeriği</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.community_id</td>
+            <td>@item.community_president_id</td>
+            <td>@item.community_name</td>
+            <td>@item.description</td>
+
+            <td><a href="/Community/DeleteCommunity/@item.community_id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Community/EditCommunity/@item.community_id" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/Community/AddCommunity" class="btn btn-info">Topluluk Ekle</a>
+

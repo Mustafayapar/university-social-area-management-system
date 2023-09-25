@@ -1,0 +1,38 @@
+﻿@model EntityLayer.Concrete.EventRegisteration
+@{
+    ViewBag.Title = "AddEventRegisteration";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+
+<h1>Etkinliğe Kayıt Ekleme İşlemi</h1>
+
+<br />
+
+@using (Html.BeginForm("AddEventRegisteration", "EventRegisteration", FormMethod.Post))
+{
+    <div class="form-group">
+        <br />
+        @Html.Label("Kayıt id")
+        @Html.TextBoxFor(x => x.id, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(x => x.id)
+        <br />
+        @Html.Label("Kayıt olan kişi")
+        @Html.TextBoxFor(x => x.studentid, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.studentid)
+        <br />
+        @Html.Label("Kayıt olunan etkinlik")
+        @Html.DropDownListFor(x => x.eid, (List<SelectListItem>)ViewBag.vle, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.eid)
+
+        <br />
+
+        <button class="btn btn-info">Kayıt Ekle</button>
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Listeleme Geri Dön", "Index")
+</div>

@@ -1,0 +1,65 @@
+﻿
+@using EntityLayer.Concrete
+@model List<Student>
+
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Content/bootstrap.min.css" ref="stylesheet" />
+<br />
+
+
+<br />
+<h2>Öğrenci Listesi</h2>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th># </th>
+        <th>Öğrenci Numarası </th>
+        <th>Adı</th>
+        <th>Soyadı </th>
+        <th>Durumu </th>
+        <th>Şifresi</th>
+        <th>Mail Adresi</th>
+        <th>Bölümü </th>
+        <th>Kurs başkanlığı</th>
+        <th>Topluluk başkanlığı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.studentid</td>
+            <td>@item.student_number</td>
+            <td>@item.name</td>
+
+            <td>@item.surname</td>
+            <td>@item.status</td>
+            <td>@item.password</td>
+
+            <td>@item.email</td>
+            <td>@item.Department.name</td>
+
+            <td>@item.president_id</td>
+            <td>@item.community_president_id</td>
+
+
+            <td><a href="/Admin/DeleteStudent/@item.studentid" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Admin/EditStudent/@item.studentid" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<br />
+<a href="/Admin/AddStudent" class="btn btn-info">Öğrenci Ekle</a>
+<br />
+
+<br />
+<br />

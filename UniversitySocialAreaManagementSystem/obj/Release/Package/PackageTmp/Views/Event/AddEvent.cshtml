@@ -1,0 +1,47 @@
+﻿@model EntityLayer.Concrete.Events
+
+@{
+    ViewBag.Title = "AddEvent";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Etkinlik Ekleme Sayfası</h2>
+
+@using (Html.BeginForm("AddEvent", "Event", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Etkinlik id")
+        @Html.TextBoxFor(x => x.eid, new { @class = "form-control" })
+        <br />
+        @Html.Label("Etkinliği oluşturan")
+        @Html.TextBoxFor(x => x.Staff.name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.staff_id)
+        <br />
+        @Html.Label("Etkinlik Adı")
+        @Html.TextBoxFor(x => x.event_name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.event_name)
+        <br />
+        @Html.Label("Etkinlik Açıklaması")
+        @Html.TextBoxFor(x => x.description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.description)
+        <br />
+        @Html.Label("Etkinlik Tarihi") <br />
+        @Html.TextBoxFor(x => x.date, new { type = "date" })
+        @Html.ValidationMessageFor(x => x.date)
+        <br />
+        @Html.Label("Etkinlik Yeri")
+        @Html.TextBoxFor(x => x.location, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.location)
+
+        <br />
+        <button class="btn btn-info">Etkinlik Ekle</button>
+
+    </div>
+
+
+}
+
+<div>
+    @Html.ActionLink("Listeleme Geri Dön", "Index")
+</div>
+

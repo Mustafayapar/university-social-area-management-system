@@ -1,0 +1,41 @@
+﻿@model EntityLayer.Concrete.Staff
+@{
+    ViewBag.Title = "EditStaff";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Personel Bilgileri Güncelle</h2>
+
+@using (Html.BeginForm("EditStaff", "Staff", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.Label("Personel İd")
+        @Html.TextBoxFor(x => x.staff_id, new { @class = "form-control", @readonly = "readonly" })
+
+
+        <br />
+        @Html.Label("Personel Adı")
+        @Html.TextBoxFor(x => x.name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.name)
+
+        <br />
+        @Html.Label("Personel Soyadı")
+        @Html.TextBoxFor(x => x.surname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.surname)
+
+        <br />
+
+        @Html.Label("Personel Tc no")
+        @Html.TextBoxFor(x => x.tc_number, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.tc_number)
+
+        <br />
+
+
+
+        <button class="btn btn-success">Güncelle</button>
+
+    </div>
+}

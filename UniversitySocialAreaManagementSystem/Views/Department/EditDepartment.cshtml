@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Concrete.Department
+
+@{
+    ViewBag.Title = "EditDepartment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Bölüm Adını Güncelle</h2>
+<br />
+@using (Html.BeginForm("EditDepartment", "Department", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.Label("Bölüm İd")
+        @Html.TextBoxFor(x => x.d_id, new { @class = "form-control", @readonly = "readonly" })
+        
+
+        <br />
+        @Html.Label("Öğrenci Adı")
+        @Html.TextBoxFor(x => x.name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.name)
+
+        <br />
+
+
+        <button class="btn btn-success">Güncelle</button>
+
+    </div>
+}
+<div>
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</div>
+

@@ -1,0 +1,36 @@
+﻿@using EntityLayer.Concrete
+@model List<CourseRegisteration>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Kursa Kayıt Listesi </h2>
+
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Kursa kayıt olan öğrenci</th>
+        <th>Kayıt olunan kurs</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.register_id</td>
+            <td>@item.studentid</td>
+            <td>@item.course_id</td>
+
+            <td><a href="/CourseRegisteration/DeleteCourseRegisteration/@item.register_id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/CourseRegisteration/EditCourseRegisteration/@item.register_id" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<a href="~/CourseRegisteration/AddCourseRegisteration" class="btn btn-info">Kurs Kayıt Ekle</a>
+

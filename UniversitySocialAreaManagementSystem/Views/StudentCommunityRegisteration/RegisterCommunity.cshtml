@@ -1,0 +1,29 @@
+﻿@model EntityLayer.Concrete.CommunityRegisteration
+@{
+    ViewBag.Title = "RegisterCommunity";
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
+}
+<br />
+<h2>Topluluğa Kayıt Ol</h2>
+<br />
+
+@using (Html.BeginForm("RegisterCommunity", "StudentCommunityRegisteration", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.Label("Topluluk id")
+        @Html.TextBoxFor(x => x.id, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+
+       
+        <br />
+        @Html.Label("Topluluk Seç")
+        @Html.DropDownListFor(x => x.community_id, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.community_id)
+        <br />
+
+        <button class="btn btn-info">Kayıt Ol</button>
+
+    </div>
+}
+

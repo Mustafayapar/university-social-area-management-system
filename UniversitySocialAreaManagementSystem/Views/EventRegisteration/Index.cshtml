@@ -1,0 +1,35 @@
+﻿@using EntityLayer.Concrete
+@model List<EventRegisteration>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Etkinlik Kayıt Listesi</h2>
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Öğrenci Numarası</th>
+        <th>Etkinlik Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.Student.student_number</td>
+            <td>@item.Events.event_name</td>
+
+            <td><a href="/EventRegisteration/DeleteEventRegisteration/@item.id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/EventRegisteration/EditEventRegisteration/@item.id" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/EventRegisteration/AddEventRegisteration" class="btn btn-info">Etkinlik Kayıt Ekle</a>
+
+

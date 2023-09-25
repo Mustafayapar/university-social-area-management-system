@@ -1,0 +1,53 @@
+﻿@model EntityLayer.Concrete.Events
+
+@{
+    ViewBag.Title = "EditEvent";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Etkinliği Düzenle</h2>
+
+
+@using (Html.BeginForm("EditEvent", "Event", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.Label("#")
+        @Html.TextBoxFor(x => x.eid, new { @class = "form-control", @readonly = "readonly" })
+
+
+        <br />
+        @Html.Label("Etkinliği Oluşturan")
+        @Html.TextBoxFor(x => x.staff_id, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.staff_id)
+
+        <br />
+        @Html.Label("Etkinliği Adı")
+        @Html.TextBoxFor(x => x.event_name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.event_name)
+        <br />
+        @Html.Label("Etkinlik Açıklaması")
+        @Html.TextBoxFor(x => x.description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.description)
+
+        
+        <br />
+        @Html.Label("Etkinlik Tarihi")
+        @Html.TextBoxFor(x => x.date, new { type = "date" })
+        @Html.ValidationMessageFor(x => x.date)
+
+        <br />
+        @Html.Label("Etkinlik Yeri")
+        @Html.TextBoxFor(x => x.location, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.location)
+
+        <br />
+
+
+        <button class="btn btn-success">Güncelle</button>
+
+    </div>
+}
+<div>
+    @Html.ActionLink("Listeleme Geri Dön", "Index")
+</div>

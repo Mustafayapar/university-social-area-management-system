@@ -1,0 +1,37 @@
+﻿@model EntityLayer.Concrete.CommunityMessage
+@{
+    ViewBag.Title = "EditCommunityMessage";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Mesajları Düzenle </h2>
+<br />
+@using (Html.BeginForm("EditCommunityMessage", "CommunityMessage", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Topluluk id")
+        @Html.TextBoxFor(x => x.message_id, new { @class = "form-control", @readonly = "readonly" })
+
+        <br />
+        @Html.Label("Topluluk başkanı ")
+        @Html.TextBoxFor(x => x.community_president_id, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.community_president_id)
+        <br />
+        @Html.Label("MeSaj İçeriği ")
+        @Html.TextBoxFor(x => x.messages, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.messages)
+        <br />
+        @Html.Label("Tarih")<br />
+        @Html.TextBoxFor(x => x.date, new { type = "date" })
+        @Html.ValidationMessageFor(x => x.date)
+        <br /><br />
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+
+    </div>
+}
+<div>
+    @Html.ActionLink("Listeleme Geri Dön", "Index")
+</div>
+

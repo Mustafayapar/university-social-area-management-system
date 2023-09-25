@@ -1,0 +1,34 @@
+﻿@model EntityLayer.Concrete.CourseRegisteration
+@{
+    ViewBag.Title = "EditCourseRegisteration";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Kurs Kayıt Düzenle</h2>
+<br />
+
+@using (Html.BeginForm("EditCourseRegisteration", "CourseRegisteration", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.Label("Kurs Kayıt id")
+        @Html.TextBoxFor(x => x.register_id, new { @class = "form-control", @readonly = "readonly" })
+
+
+        <br />
+        @Html.Label("Öğrenci id")
+        @Html.TextBoxFor(x => x.studentid, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.studentid)
+
+        <br />
+        @Html.Label("Kurs id")
+        @Html.TextBoxFor(x => x.course_id, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.course_id)
+
+        <br />
+
+
+        <button class="btn btn-success">Güncelle</button>
+
+    </div>
+}

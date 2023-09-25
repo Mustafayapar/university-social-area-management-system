@@ -1,0 +1,51 @@
+﻿
+@using EntityLayer.Concrete
+
+@model List<Events>
+@{
+    ViewBag.Title = "Events";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<br />
+
+<h2>Etkinlikler</h2>
+
+<br />
+<a href="/EventRegisteration/Index" class="btn btn-info">Etkinlik Kayıt Listesi</a>
+<br />
+<br />
+<br />
+<table class="table table-bordered">
+
+
+    <tr>
+        <th>#</th>
+        <th>Etkinliği Oluşturan Adı</th>
+        <th>Etkinliğin Adı</th>
+        <th>Etkinliğin Tanımı</th>
+        <th>Etkinlik Tarihi</th>
+        <th>Etkinlik Yeri</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.eid</td>
+            <td>@item.Staff.name @item.Staff.surname</td>
+            <td>@item.event_name</td>
+            <td>@item.description</td>
+            <td>@(((DateTime)item.date).ToString("dd-MMM-yyyy"))</td>
+            <td>@item.location</td>
+
+        </tr>
+    }
+
+
+</table>
+
+
+
+

@@ -1,0 +1,36 @@
+﻿@model EntityLayer.Concrete.CourseRegisteration
+@{
+    ViewBag.Title = "AddCourseRegisteration";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+
+<h2>Kurs Kayıt Ekleme</h2>
+<br />
+
+
+@using (Html.BeginForm("AddCourseRegisteration", "CourseRegisteration", FormMethod.Post))
+{
+    <div class="form-group">
+        <br />
+
+        @Html.Label("Öğrenci id ")
+        @Html.TextBoxFor(x => x.studentid, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.studentid)
+
+        <br />
+        @Html.Label("Kurs adı seçiniz")
+        @Html.DropDownListFor(x => x.course_id, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.course_id)
+
+        <br />
+
+        <button class="btn btn-info">Kayıt Ekle</button>
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink(" Geri Dön", "Index")
+</div>

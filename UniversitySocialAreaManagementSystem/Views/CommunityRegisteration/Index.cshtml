@@ -1,0 +1,40 @@
+﻿@model List<EntityLayer.Concrete.CommunityRegisteration>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Topluluğa Kayıt olanlar</h2>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th># </th>
+        <th>ÖğrenciAdı </th>
+        <th>Öğrenci Soyadı</th>
+        <th>Topluluk</th>
+       
+       
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.Student.name</td>
+            <td>@item.Student.surname</td>
+            <td>@item.Community.community_name</td>
+
+
+
+            <td><a href="/CommunityRegisteration/DeleteCommunityRegister/@item.id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/CommunityRegisteration/EditCommunityRegister/@item.id" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<br />
+<a href="/CommunityRegisteration/AddCommunityRegister" class="btn btn-info">Kayıt Ekle</a>
+<br />

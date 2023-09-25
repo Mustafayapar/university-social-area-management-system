@@ -1,0 +1,35 @@
+﻿@model EntityLayer.Concrete.EventRegisteration
+@{
+    ViewBag.Title = "EditEventRegisteration";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Etkinlik Kayıt Düzenleme </h2>
+<br />
+
+@using (Html.BeginForm("EditEventRegisteration", "EventRegisteration", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.Label("Etkinlik Kayıt id")
+        @Html.TextBoxFor(x => x.id, new { @class = "form-control" })
+
+
+        <br />
+        @Html.Label("Öğrenci id")
+        @Html.TextBoxFor(x => x.studentid, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.studentid)
+        <br />
+        @Html.Label("Etkinlik id")
+        @Html.TextBoxFor(x => x.eid, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.eid)
+        <br />
+
+
+        <button class="btn btn-success">Güncelle</button>
+
+    </div>
+}
+<div>
+    @Html.ActionLink("Listeleme Geri Dön", "Index")
+</div>

@@ -1,0 +1,38 @@
+﻿
+@using EntityLayer.Concrete
+@model List<Community>
+
+@{
+    ViewBag.Title = "Communities";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2>Topluluklar</h2>
+<br />
+
+
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Topluluk id</th>
+        <th>Topluluk Başkanı</th>
+        <th>Topluluk Adı</th>
+        <th>Topluluk İçeriği</th>
+     
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.community_id</td>
+            <td>@item.community_president_id</td>
+            <td>@item.community_name</td>
+            <td>@item.description</td>
+
+        </tr>
+    }
+</table>
+
+

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Manager>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yönetici Listeleme</h2>
+<link href="~/Content/bootstrap.min.css" ref="stylesheet" />
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th># </th>
+        <th>Yönetici Kullanıcı Adı </th>
+        <th>Adı</th>
+        <th>Soyadı </th>
+        <th>Şifresi</th>
+        <th>Sil </th>
+        <th>Güncelle</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.manager_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user_name)
+            </td>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+           
+            <td><a href="/Manager/DeleteManager/@item.manager_id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Manager/EditManager/@item.manager_id" class="btn btn-success">Güncelle</a></td>
+
+
+        </tr>
+    }
+
+</table>
+<br />
+
+<a href="/Manager/AddManager" class="btn btn-info">Yönetici Ekle</a>

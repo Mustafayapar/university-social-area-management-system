@@ -1,0 +1,37 @@
+﻿@model EntityLayer.Concrete.Community
+@{
+    ViewBag.Title = "EditCommunity";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+
+<h2>Topluluk düzenle</h2>
+<br />
+
+@using (Html.BeginForm("EditCommunity", "Community", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Topluluk id")
+        @Html.TextBoxFor(x => x.community_id, new { @class = "form-control", @readonly = "readonly" })
+
+        <br />
+        @Html.Label("Topluluk başkanı ")
+        @Html.TextBoxFor(x => x.community_president_id, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.community_president_id)
+        <br />
+        @Html.Label("Topluluk Adı")
+        @Html.TextBoxFor(x => x.community_name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.community_name)
+        <br />
+        @Html.Label("Topluluk İçeriği")
+        @Html.TextBoxFor(x => x.description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.description)
+
+
+        <button class="btn btn-success">Güncelle</button>
+
+    </div>
+}
+<div>
+    @Html.ActionLink("Listeleme Geri Dön", "Index")
+</div>

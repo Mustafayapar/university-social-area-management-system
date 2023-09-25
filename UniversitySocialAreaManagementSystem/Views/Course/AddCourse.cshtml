@@ -1,0 +1,36 @@
+﻿@model EntityLayer.Concrete.Course
+@{
+    ViewBag.Title = "AddCourse";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Kurs Ekleme</h2>
+<br />
+
+@using (Html.BeginForm("AddCourse", "Course", FormMethod.Post))
+{
+    <div class="form-group">
+
+      
+
+        @Html.Label("Kurs Açan Öğrenci id")
+        @Html.TextBoxFor(x => x.president_id, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.president_id)
+        <br />
+        @Html.Label("Kursun Adı ")
+        @Html.TextBoxFor(x => x.course_name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.course_name)
+        <br />
+        @Html.Label("Kursun Tanımı")
+        @Html.TextBoxFor(x => x.description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.description)
+
+        <br />
+        <button class="btn btn-info">Kaydet</button>
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink(" Geri Dön", "Index")
+</div>

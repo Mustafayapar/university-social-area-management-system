@@ -1,0 +1,40 @@
+﻿@model EntityLayer.Concrete.CommunityMessage
+
+@{
+    ViewBag.Title = "AddCommunityMessage";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Mesaj Ekle</h2>
+<br />
+@using (Html.BeginForm("AddCommunityMessage", "CommunityMessage", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.Label("Başkanın adı")
+        @Html.TextBoxFor(x => x.community_president_id, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.community_president_id)
+
+
+        <br />
+        @Html.Label("Mesaj İçeriği")
+        @Html.TextBoxFor(x => x.messages, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.messages)
+
+
+        <br />
+        @Html.Label("Tarih")        <br />
+        @Html.TextBoxFor(x => x.date, new { type = "date" })        
+        @Html.ValidationMessageFor(x => x.date)
+
+
+        <br />
+
+        <button class="btn btn-info">Mesaj Gönder</button>
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink(" Geri Dön", "Index")
+</div>

@@ -1,0 +1,35 @@
+﻿@model EntityLayer.Concrete.CourseRegisteration
+
+@{
+    ViewBag.Title = "RegisterCourse";
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
+}
+
+
+<br />
+<h2>Kursa Kayıt Ol</h2>
+<br />
+
+@using (Html.BeginForm("RegisterCourse", "StudentCourseRegisteration", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.Label(" id")
+        @Html.TextBoxFor(x => x.course_id, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+
+
+        <br />
+        @Html.Label("Kurs Seç")
+        @Html.DropDownListFor(x => x.course_id, (List<SelectListItem>)ViewBag.vlco, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.course_id)
+
+
+        <br />
+
+        <button class="btn btn-info">Kayıt Ol</button>
+
+    </div>
+}
+
+

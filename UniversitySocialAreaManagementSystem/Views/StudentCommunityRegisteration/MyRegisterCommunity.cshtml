@@ -1,0 +1,38 @@
+﻿@using EntityLayer.Concrete
+@model List<CommunityRegisteration>
+@{
+    ViewBag.Title = "MyRegisterCommunity";
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
+}
+
+<h2>Kayıt Olduğum Topluluklar</h2>
+
+<br />
+<a href="/StudentCommunity/Index" class="btn btn-info">Topluluk  Listesi</a>
+<br />
+<br />
+<br />
+<table class="table table-bordered">
+
+
+    <tr>
+        <th>#</th>
+        <th>Adım</th>
+        <th>Topluluk Adı</th> 
+        
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.id</td>
+
+            <td>@item.Student.name  @item.Student.surname</td>
+            <td>@item.Community.community_name</td>
+           
+        </tr>
+    }
+
+
+</table>

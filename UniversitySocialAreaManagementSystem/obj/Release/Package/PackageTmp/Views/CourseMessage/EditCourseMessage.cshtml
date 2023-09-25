@@ -1,0 +1,45 @@
+﻿@model EntityLayer.Concrete.CourseMessage
+@{
+    ViewBag.Title = "EditCourseMessage";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Kurs mesaj Düzenle</h2>
+<br />
+
+@using (Html.BeginForm("EditCourseMessage", "CourseMessage", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.Label("Mesaj İd")
+        @Html.TextBoxFor(x => x.message_id, new { @class = "form-control", @readonly = "readonly" })
+
+
+        <br />
+        @Html.Label("Başkan Adı")
+        @Html.TextBoxFor(x => x.president_id, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.president_id)
+
+        <br />
+        
+        @Html.Label("Mesaj İçeriği")
+        @Html.TextBoxFor(x => x.message, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.message)
+
+        <br />
+        @Html.Label("Tarih")
+        @Html.TextBoxFor(x => x.date, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.date)
+
+        <br />
+
+
+        <button class="btn btn-success">Güncelle</button>
+
+    </div>
+}
+<div>
+    @Html.ActionLink(" Geri Dön", "Index")
+</div>
+

@@ -1,0 +1,47 @@
+﻿@using EntityLayer.Concrete
+@model List<EventRegisteration>
+@{
+    ViewBag.Title = "MyRegisterEvent";
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
+}
+
+<h2>Kayıt Olduğum Etkinlikler</h2>
+
+
+<br />
+<a href="/StudentEvent/Index" class="btn btn-info">Etkinlik  Listesi</a>
+<br />
+<br />
+<br />
+<table class="table table-bordered">
+
+
+    <tr>
+        <th>#</th>
+        <th>Adım</th>
+        <th>Etkinliğin Adı</th>
+        <th>Etkinliğin Tanımı</th>
+        <th>Etkinlik Tarihi</th>
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.id</td>
+
+            <td>@item.Student.name  @item.Student.surname</td>
+            <td>@item.Events.event_name</td>
+            <td>@item.Events.description</td>
+            <td>@item.Events.date</td>
+        </tr>
+    }
+
+
+</table>
+
+
+@*<customErrors mode="On">
+    <error statusCode="404" redirect="/ErrorPage/Error404" />
+</customErrors>*@
+
